@@ -1,0 +1,100 @@
+.scratch-container{
+  background-color: black;
+  min-height: 100vh;
+}
+
+.header-section-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.logo {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.heading {
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #f26624, #ff8c00, #ff4d4d, #ff1493, #8000ff, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+.scratch-section-section-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.scratch-card-center-section-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 0px solid white;
+  padding: 10px;
+}
+.scratch-card-wrapper-section-2 canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.scratch-card-wrapper-section-2 {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.scratch-content-layer-section-2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: transparent;
+}
+
+.reveal-amount-section-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+  border: 2px solid #ffcc00;
+  border-radius: 20px;
+  padding: 30px 40px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  z-index: 3;
+  animation: revealPop 0.4s ease-in-out;
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.6);
+}
+
+.reveal-amount-section-2 h2 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #ffe066;
+  letter-spacing: 1px;
+}
+
+@keyframes revealPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

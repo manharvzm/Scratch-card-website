@@ -22,7 +22,7 @@ const ClaimFormPopup = ({ prize, onClose }) => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const checkRes = await fetch('https://admin-backend-orcin-six.vercel.app/api/scratch/check', {
+      const checkRes = await fetch('https://admin-backend-orcin-six.vercel.app/api/check', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mobile: formData.mobile })
@@ -33,7 +33,7 @@ const ClaimFormPopup = ({ prize, onClose }) => {
         return;
       }
 
-      await fetch('https://admin-backend-orcin-six.vercel.app/api/scratch/claim', {
+      await fetch('https://admin-backend-orcin-six.vercel.app/api/claim', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

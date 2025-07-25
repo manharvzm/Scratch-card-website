@@ -3,7 +3,7 @@ import './ClaimFormPopup.css';
 import FeedbackPage from './FeedbackPage';
 
 const ClaimFormPopup = ({ prize, onClose }) => {
-  const [formData, setFormData] = useState({ name: '', mobile: '', email: '', prize: '' });
+  const [formData, setFormData] = useState({ name: '', mobile: '', prize: '' });
   const [error, setError] = useState('');
   const [showFeedback, setShowFeedback] = useState(false);
 
@@ -19,8 +19,18 @@ const ClaimFormPopup = ({ prize, onClose }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const validateMobile = (mobile) => {
+    const mobileRegex = /^[6-9]\d{9}$/;
+    return mobileRegex.test(mobile);
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (!validateMobile(formData.mobile)) {
+      setError('Enter a valid 10-digit mobile number starting with 6, 7, 8, or 9');
+      return;
+    }
+
     try {
       const checkRes = await fetch('https://admin-backend-orcin-six.vercel.app/api/check', {
         method: 'POST',
@@ -69,14 +79,8 @@ const ClaimFormPopup = ({ prize, onClose }) => {
             value={formData.mobile}
             onChange={handleChange}
             required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            required
+            maxLength="10"
+            pattern="[6-9][0-9]{9}"
           />
           {error && <p className="error-text">{error}</p>}
           <button type="submit">Submit</button>

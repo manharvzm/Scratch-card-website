@@ -27,26 +27,36 @@ const ScratchCardPage = () => {
   };
 
   return (
-    <div className="scratch-container">
-      <div className="header-section-1">
-        <img src="/images/sample-logo.jpg" alt="Logo" className="logo" />
-        <h1 className="heading">Manhar Enterprises</h1>
-      </div>
+    <div className="scratch-page-container">
+      <img
+        src="/images/bg2.jpg"
+        alt="background"
+        className="bg-image"
+      />
+      <div className="overlay-gradient" />
 
-      <div className="scratch-section-section-2">
-        <div className="scratch-card-center-section-2">
-          <div className="scratch-card-wrapper-section-2">
+      <div className="content-wrapper">
+        <div className="header-section">
+          <img src="/images/sample-logo.jpg" alt="Logo" className="logo" />
+          <h1 className="heading">
+            <span className="heading-text">Manhar Shopping Mall</span>
+            <span className="heading-underline" />
+          </h1>
+        </div>
+
+        <div className="scratch-card-section">
+          <div className="scratch-card-glow">
             <ScratchCard
               width={300}
               height={300}
-              image="/images/qr3.jpg"
+              image="/images/qr5.jpg"
               finishPercent={40}
               onComplete={handleScratchComplete}
               brushSize={20}
             >
-              <div className="scratch-content-layer-section-2">
+              <div className="scratch-content-layer">
                 {revealed && showPrizePopup && (
-                  <div className="reveal-amount-section-2">
+                  <div className="reveal-amount">
                     <h2>🎉 You won ₹{prize}</h2>
                   </div>
                 )}

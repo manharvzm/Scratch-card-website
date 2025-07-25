@@ -56,7 +56,13 @@ const ClaimFormPopup = ({ prize, onClose }) => {
   };
 
   if (showFeedback) {
-    return <FeedbackPage />;
+    return (
+      <div className="form-popup-overlay">
+        <div className="form-popup-box">
+          <FeedbackPage />
+        </div>
+      </div>
+    );
   }
 
   return (

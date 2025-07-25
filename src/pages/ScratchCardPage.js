@@ -44,26 +44,25 @@ const ScratchCardPage = () => {
           </h1>
         </div>
 
-        <div className="scratch-card-section">
-          <div className="scratch-card-glow">
-            <ScratchCard
-              width={300}
-              height={300}
-              image="/images/qr5.jpg"
-              finishPercent={40}
-              onComplete={handleScratchComplete}
-              brushSize={20}
-            >
-              <div className="scratch-content-layer">
-                {revealed && showPrizePopup && (
-                  <div className="reveal-amount">
-                    <h2>🎉 You won ₹{prize}</h2>
-                  </div>
-                )}
-              </div>
-            </ScratchCard>
-          </div>
+        <div className={`scratch-card-glow ${revealed ? 'glow-disabled' : ''}`}>
+          <ScratchCard
+            width={300}
+            height={300}
+            image="/images/qr6.jpg"
+            finishPercent={40}
+            onComplete={handleScratchComplete}
+            brushSize={20}
+          >
+            <div className="scratch-content-layer">
+              {revealed && showPrizePopup && (
+                <div className="reveal-amount">
+                  <h2>🎉 You won ₹{prize}</h2>
+                </div>
+              )}
+            </div>
+          </ScratchCard>
         </div>
+
       </div>
 
       {showFormPopup && (

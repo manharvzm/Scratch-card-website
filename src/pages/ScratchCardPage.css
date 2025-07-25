@@ -127,6 +127,10 @@
     transform: rotate(360deg);
   }
 }
+.glow-disabled::before {
+  display: none;
+}
+
 
 .scratch-content-layer {
   width: 100%;

@@ -38,15 +38,18 @@
   cursor: pointer;
 }
 
-.star {
-  transition: transform 0.2s ease;
+.star-icon {
+  color: #333;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.star:hover {
+.star-icon:hover {
   transform: scale(1.2);
 }
 
-
+.star-icon.filled {
+  color: #ffcc00;
+}
 
 @media (max-width: 1024px) {
   .feedback-thankyou {

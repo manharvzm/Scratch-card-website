@@ -49,34 +49,39 @@ const ScratchCardPage = () => {
       {showIntroPopup && <Popup onClose={() => setShowIntroPopup(false)} />}
 
       {!showIntroPopup && (
-        <div className="content-wrapper">
-          <div className="header-section">
-            <img src="/images/sample-logo.jpg" alt="Logo" className="logo" />
-            <h1 className="heading">
-              <span className="heading-text">Manhar Shopping Mall</span>
-              <span className="heading-underline" />
-            </h1>
-          </div>
+        <>
+          <img src="/images/bg2.jpg" alt="background" className="bg-image" />
+          <div className="overlay-gradient" />
 
-          <div className={`scratch-card-glow ${revealed ? 'glow-disabled' : ''}`}>
-            <ScratchCard
-              width={300}
-              height={300}
-              image="/images/qr6.jpg"
-              finishPercent={40}
-              onComplete={handleScratchComplete}
-              brushSize={20}
-            >
-              <div className="scratch-content-layer">
-                {revealed && showPrizePopup && (
-                  <div className="reveal-amount">
-                    <h2>🎉 You won ₹{prize}</h2>
-                  </div>
-                )}
-              </div>
-            </ScratchCard>
+          <div className="content-wrapper">
+            <div className="header-section">
+              <img src="/images/sample-logo.jpg" alt="Logo" className="logo" />
+              <h1 className="heading">
+                <span className="heading-text">Manhar Shopping Mall</span>
+                <span className="heading-underline" />
+              </h1>
+            </div>
+
+            <div className={`scratch-card-glow ${revealed ? 'glow-disabled' : ''}`}>
+              <ScratchCard
+                width={300}
+                height={300}
+                image="/images/qr6.jpg"
+                finishPercent={40}
+                onComplete={handleScratchComplete}
+                brushSize={20}
+              >
+                <div className="scratch-content-layer">
+                  {revealed && showPrizePopup && (
+                    <div className="reveal-amount">
+                      <h2>🎉 You won ₹{prize}</h2>
+                    </div>
+                  )}
+                </div>
+              </ScratchCard>
+            </div>
           </div>
-        </div>
+        </>
       )}
 
       {showFormPopup && (

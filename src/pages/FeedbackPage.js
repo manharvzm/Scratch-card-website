@@ -33,7 +33,7 @@ const FeedbackPage = () => {
         <div className="feedback-right">
           <iframe
             title="Google Maps Review"
-            src="https://www.google.com/maps/embed?pb=!4v1696851969213!6m8!1m7!1sCAoSLEFGMVFpcE1wRXNoVWZqd1dQVjlJTHRZUzVKMlBfNUJwb0Y5UHZQTk4zUjVm!2m2!1d17.385044!2d78.486671!3f0!4f0!5f0.7820865974627469"
+            src="https://www.google.com/maps/place/Manhar+Shopping+Mall/@18.1156761,83.4104265,17z/data=!4m8!3m7!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!8m2!3d18.1156761!4d83.4104265!9m1!1b1!16s%2Fg%2F11h1gm43v?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

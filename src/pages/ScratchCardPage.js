@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ScratchCard from 'react-scratchcard-v2';
 import ClaimFormPopup from './ClaimFormPopup';
+import FeedbackPage from './FeedbackPage';
 import Popup from './Popup';
 import './ScratchCardPage.css';
 
 const ScratchCardPage = () => {
-  const [revealed, setRevealed] = useState(false);
+  const [step, setStep] = useState('popup');
   const [prize, setPrize] = useState(null);
-  const [showFormPopup, setShowFormPopup] = useState(false);
   const [showPrizePopup, setShowPrizePopup] = useState(false);
-  const [showIntroPopup, setShowIntroPopup] = useState(true);
+  const [revealed, setRevealed] = useState(false);
 
   const prizePool = [
     ...Array(40).fill(5),
@@ -24,35 +24,38 @@ const ScratchCardPage = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowIntroPopup(false);
+      const randomPrize = prizePool[Math.floor(Math.random() * prizePool.length)];
+      setPrize(randomPrize);
+      setStep('form');
     }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
+  const handleFormSubmit = () => {
+    setStep('scratch');
+  };
+
   const handleScratchComplete = () => {
-    const randomPrize = prizePool[Math.floor(Math.random() * prizePool.length)];
-    setPrize(randomPrize);
     setRevealed(true);
     setShowPrizePopup(true);
     setTimeout(() => {
       setShowPrizePopup(false);
-      setShowFormPopup(true);
+      setStep('feedback');
     }, 2000);
-  };
-
-  const handleFormClose = () => {
-    setShowFormPopup(false);
   };
 
   return (
     <div className="scratch-page-container">
-      {showIntroPopup && <Popup onClose={() => setShowIntroPopup(false)} />}
+      {step === 'popup' && <Popup onClose={() => {}} />}
 
-      {!showIntroPopup && (
+      {step === 'form' && (
+        <ClaimFormPopup prize={prize} onSubmit={handleFormSubmit} />
+      )}
+
+      {step === 'scratch' && (
         <>
           <img src="/images/bg2.jpg" alt="background" className="bg-image" />
           <div className="overlay-gradient" />
-
           <div className="content-wrapper">
             <div className="header-section">
               <img src="/images/sample-logo.jpg" alt="Logo" className="logo" />
@@ -61,7 +64,6 @@ const ScratchCardPage = () => {
                 <span className="heading-underline" />
               </h1>
             </div>
-
             <div className={`scratch-card-glow ${revealed ? 'glow-disabled' : ''}`}>
               <ScratchCard
                 width={300}
@@ -84,12 +86,7 @@ const ScratchCardPage = () => {
         </>
       )}
 
-      {showFormPopup && (
-        <ClaimFormPopup
-          prize={prize}
-          onClose={handleFormClose}
-        />
-      )}
+      {step === 'feedback' && <FeedbackPage />}
     </div>
   );
 };

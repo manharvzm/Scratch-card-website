@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './ClaimFormPopup.css';
-import FeedbackPage from './FeedbackPage';
 
-const ClaimFormPopup = ({ prize, onClose }) => {
+const ClaimFormPopup = ({ prize, onSubmit }) => {
   const [formData, setFormData] = useState({ name: '', mobile: '', prize: '' });
   const [error, setError] = useState('');
-  const [showFeedback, setShowFeedback] = useState(false);
 
   useEffect(() => {
     if (prize !== null && prize !== undefined) {
@@ -49,21 +47,11 @@ const ClaimFormPopup = ({ prize, onClose }) => {
         body: JSON.stringify(formData)
       });
 
-      setShowFeedback(true);
+      onSubmit();
     } catch (err) {
       setError('Server error');
     }
   };
-
-  if (showFeedback) {
-    return (
-      <div className="form-popup-overlay">
-        <div className="form-popup-box">
-          <FeedbackPage />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="form-popup-overlay">
@@ -91,7 +79,6 @@ const ClaimFormPopup = ({ prize, onClose }) => {
           {error && <p className="error-text">{error}</p>}
           <button type="submit">Submit</button>
         </form>
-        <button className="close-btn" onClick={onClose}>✖</button>
       </div>
     </div>
   );

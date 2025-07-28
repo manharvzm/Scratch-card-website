@@ -2,27 +2,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-color: black;
   color: #fff;
-  min-height: 100vh;
-  padding: 40px 20px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .feedback-container {
   display: flex;
-  background-color: #2a2a2a;
-  border-radius: 10px;
-  padding: 30px;
-  max-width: 900px;
   width: 100%;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
+  height: 90vh;
 }
 
 .feedback-left {
-  flex: 1 1 300px;
+  width: 30%;
+  background-color: #2a2a2a;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,22 +55,19 @@
 }
 
 .feedback-right {
-  flex: 1 1 300px;
-  height: 300px;
+  width: 70%;
+  height: 100%;
   overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #000;
 }
 
 .feedback-right iframe {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 10px;
 }
 
-.submit-btn {
-  margin-top: 30px;
+.proceed-btn {
+  margin: 20px;
   padding: 12px 30px;
   background-color: #ffcc00;
   color: #000;
@@ -86,45 +79,18 @@
   transition: background 0.3s ease;
 }
 
-.submit-btn:hover {
+.proceed-btn:hover {
   background-color: #e6b800;
-}
-
-.success-popup {
-  position: fixed;
-  bottom: 40px;
-  background: #333;
-  color: #fff;
-  padding: 16px 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  animation: fadeInOut 3s ease forwards;
-}
-
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(20px); }
-  10% { opacity: 1; transform: translateY(0); }
-  90% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(20px); }
 }
 
 @media (max-width: 768px) {
   .feedback-container {
     flex-direction: column;
-    align-items: center;
-    padding: 24px;
   }
 
   .feedback-left,
   .feedback-right {
     width: 100%;
-  }
-
-  .feedback-right {
-    height: 350px;
-  }
-
-  .feedback-right iframe {
-    height: 100%;
+    height: 50vh;
   }
 }

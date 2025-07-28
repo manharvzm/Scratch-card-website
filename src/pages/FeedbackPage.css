@@ -60,15 +60,16 @@
 
 .feedback-right {
   flex: 1 1 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
 }
 
 .feedback-right iframe {
   width: 100%;
-  height: 250px;
-  border: 0;
+  height: 100%;
+  border: none;
   border-radius: 10px;
 }
 
@@ -119,23 +120,11 @@
     width: 100%;
   }
 
+  .feedback-right {
+    height: 300px;
+  }
+
   .feedback-right iframe {
-    height: 220px;
-  }
-}
-
-@media (max-width: 400px) {
-  .star-row {
-    font-size: 1.5rem;
-    gap: 8px;
-  }
-
-  .feedback-left p {
-    font-size: 1rem;
-  }
-
-  .submit-btn {
-    font-size: 0.95rem;
-    padding: 10px 24px;
+    height: 100%;
   }
 }

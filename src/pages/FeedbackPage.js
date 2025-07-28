@@ -5,7 +5,7 @@ const FeedbackPage = () => {
   const [hovered, setHovered] = useState(null);
 
   const handleProceed = () => {
-    window.location.href = 'https://www.google.com/maps/place/Manhar+Shopping+Mall/@18.1151287,83.409783,16z/data=!4m16!1m9!3m8!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!2sManhar+Shopping+Mall!8m2!3d18.1156761!4d83.4104265!9m1!1b1!16s%2Fg%2F11h1gm43v!3m5!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!8m2!3d18.1156761!4d83.4104265!16s%2Fg%2F11h1gm43v?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D';
+    window.location.href = 'https://www.google.com/maps/place/Manhar+Shopping+Mall/@18.1151287,83.409783,16z/data=!4m18!1m9!3m8!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!2sManhar+Shopping+Mall!8m2!3d18.1156761!4d83.4104265!9m1!1b1!16s%2Fg%2F11h1gm43v!3m7!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!8m2!3d18.1156761!4d83.4104265!9m1!1b1!16s%2Fg%2F11h1gm43v?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D';
   };
 
   return (

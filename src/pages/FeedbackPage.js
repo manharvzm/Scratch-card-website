@@ -32,12 +32,12 @@ const FeedbackPage = () => {
 
         <div className="feedback-right">
           <iframe
-            title="Manhar Shopping Mall"
-            src="https://www.google.com/maps/place/Manhar+Shopping+Mall/@18.1151287,83.409783,16.32z/data=!4m16!1m9!3m8!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!2sManhar+Shopping+Mall!8m2!3d18.1156761!4d83.4104265!9m1!1b1!16s%2Fg%2F11h1gm43v!3m5!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!8m2!3d18.1156761!4d83.4104265!16s%2Fg%2F11h1gm43v?entry=ttu"
+            title="Google Maps Review Page"
+            src="https://maps.app.goo.gl/bpyhYaTdrXhRxLJP6?g_st=com.google.maps.preview.copy"
             width="100%"
             height="100%"
             frameBorder="0"
-            allowFullScreen
+            allow="fullscreen"
           ></iframe>
         </div>
       </div>

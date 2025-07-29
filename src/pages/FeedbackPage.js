@@ -26,6 +26,7 @@ const FeedbackPage = () => {
               </span>
             ))}
           </div>
+          <button className="proceed-btn mobile-btn" onClick={handleProceed}>Proceed</button>
         </div>
 
         <div className="feedback-right">
@@ -42,7 +43,7 @@ const FeedbackPage = () => {
         </div>
       </div>
 
-      <button className="proceed-btn" onClick={handleProceed}>Proceed</button>
+      <button className="proceed-btn desktop-btn" onClick={handleProceed}>Proceed</button>
     </div>
   );
 };

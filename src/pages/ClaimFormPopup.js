@@ -57,6 +57,18 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
 
   return (
     <div className="form-popup-overlay">
+      <div className="bg-ornaments" aria-hidden="true">
+        <span className="ring r1"></span>
+        <span className="ring r2"></span>
+        <span className="ring r3"></span>
+        <span className="bubble b1"></span>
+        <span className="bubble b2"></span>
+        <span className="bubble b3"></span>
+        <span className="bubble b4"></span>
+        <span className="orb o1"></span>
+        <span className="orb o2"></span>
+      </div>
+
       <div className="form-popup-box">
         <h3 className="form-title">Claim Your Prize 🎁</h3>
         <form onSubmit={handleFormSubmit}>

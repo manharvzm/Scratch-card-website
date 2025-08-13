@@ -38,35 +38,32 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
   }, []);
 
   useEffect(() => {
-    if (prizeState !== null && prizeState !== undefined) {
-      setFormData(prev => ({ ...prev, prize: prizeState }));
+    if (prize !== null && prize !== undefined) {
+      setFormData(prev => ({ ...prev, prize }));
     }
-  }, [prizeState]);
-
-  const validateMobile = (mobile) => {
-    const mobileRegex = /^[6-9]\d{9}$/;
-    return mobileRegex.test(mobile);
-  };
+  }, [prize]);
 
   const handleChange = (e) => {
+    if (!e?.target?.name) return;
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+   const validateMobile = (mobile) => {
+    const mobileRegex = /^[6-9]\d{9}$/;
+    return mobileRegex.test(mobile);
+  };
+
+ 
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.mobile) {
-      setError('All fields are required');
-      return;
-    }
     if (!validateMobile(formData.mobile)) {
       setError('Enter a valid 10-digit mobile number starting with 6, 7, 8, or 9');
       return;
     }
-
     setError('');
     setLoading(true);
-
     try {
       const checkRes = await fetch('https://admin-backend-orcin-six.vercel.app/api/check', {
         method: 'POST',
@@ -75,22 +72,19 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
       });
       const checkData = await checkRes.json();
       if (checkData.exists) {
-        setError('You are already a customer');
         setLoading(false);
+        setError('You are already a customer');
         return;
       }
-
       await fetch('https://admin-backend-orcin-six.vercel.app/api/claim', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-
-      setLoading(false);
       onSubmit();
     } catch (err) {
-      setError('Server error');
       setLoading(false);
+      setError('Server error');
     }
   };
 
@@ -176,7 +170,7 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
 
         <div className="sub-section4">
           {showSubmitButton && !loading && (
-            <button onClick={handleFormSubmit} className="submit-btn">Submit</button>
+<button type="submit" disabled={loading}>{loading ? 'Submitting...' : 'Submit'}</button>
           )}
           {loading && (
             <div className="loader-overlay">

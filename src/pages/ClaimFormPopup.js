@@ -49,12 +49,10 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-   const validateMobile = (mobile) => {
+  const validateMobile = (mobile) => {
     const mobileRegex = /^[6-9]\d{9}$/;
     return mobileRegex.test(mobile);
   };
-
- 
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -144,17 +142,23 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
                   onChange={handleChange}
                   placeholder="Enter your name"
                   className="form-input"
+                  required
+            disabled={loading}
                 />
               </div>
               <div className="input-container">
                 <label>Mobile:</label>
                 <input
-                  type="text"
+                  type="tel"
                   name="mobile"
                   value={formData.mobile}
                   onChange={handleChange}
                   placeholder="Enter your mobile number"
                   className="form-input"
+                  required
+            maxLength="10"
+            pattern="[6-9][0-9]{9}"
+            disabled={loading}
                 />
               </div>
               {error && <p className="error-text">{error}</p>}
@@ -170,7 +174,7 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
 
         <div className="sub-section4">
           {showSubmitButton && !loading && (
-<button type="submit" disabled={loading}>{loading ? 'Submitting...' : 'Submit'}</button>
+            <button type="submit" disabled={loading}>{loading ? 'Submitting...' : 'Submit'}</button>
           )}
           {loading && (
             <div className="loader-overlay">

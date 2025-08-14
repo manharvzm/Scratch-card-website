@@ -79,7 +79,16 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
-      onSubmit();
+      setLoading(false);
+      setShowSubmitPopup(true);
+      setTimeout(() => {
+        setShowSubmitPopup(false);
+        setFormData({ name: '', mobile: '', prize: '' });
+        setFormVisible(false);
+        setShowPopup(false);
+        setStep('popup');
+        onSubmit();
+      }, 3000);
     } catch (err) {
       setLoading(false);
       setError('Server error');
@@ -122,9 +131,28 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
         <hr />
       </div>
       <div className="section2">
-        <FaInstagram className="social-icon" />
+        <a
+          href="https://www.instagram.com/_attach.com_?igsh=MXhpZWI4Z2FjaHJhZQ=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram className="social-icon" />
+        </a>
+        <a
+          href="https://www.instagram.com/_attach.com_?igsh=MXhpZWI4Z2FjaHJhZQ=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
         <FaFacebook className="social-icon" />
+        </a>
+
+        <a
+          href="https://www.google.com/maps/place/Manhar+Shopping+Mall"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
         <FaGoogle className="social-icon" />
+        </a>
       </div>
       <div className="section3">
         <div className="sub-section1">
@@ -143,7 +171,7 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
                   placeholder="Enter your name"
                   className="form-input"
                   required
-            disabled={loading}
+                  disabled={loading}
                 />
               </div>
               <div className="input-container">
@@ -156,9 +184,9 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
                   placeholder="Enter your mobile number"
                   className="form-input"
                   required
-            maxLength="10"
-            pattern="[6-9][0-9]{9}"
-            disabled={loading}
+                  maxLength="10"
+                  pattern="[6-9][0-9]{9}"
+                  disabled={loading}
                 />
               </div>
               {error && <p className="error-text">{error}</p>}
@@ -166,7 +194,7 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
           </div>
         )}
         <div className="sub-section2">
-          <button onClick={() => window.location.href = "https://www.google.com/maps/place/Manhar+Shopping+Mall"} className="feedback-btn">Give the Feedback</button>
+          <button onClick={() => window.location.href = "https://www.google.com/maps/place/Manhar+Shopping+Mall/@18.1156812,83.4078516,17z/data=!4m8!3m7!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!8m2!3d18.1156761!4d83.4104265!9m1!1b1!16s%2Fg%2F11h1gm43v!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D"} className="feedback-btn">Give the Feedback</button>
         </div>
         <div className="sub-section3">
           <button onClick={handleScratchWinClick} className="scratch-btn">Scratch & Win</button>
@@ -216,8 +244,7 @@ const ClaimFormPopup = ({ prize, onSubmit }) => {
       {showSubmitPopup && (
         <div className="popup-overlay">
           <div className="popup-content">
-            <h2>Congratulations! You won ₹{prizeState}</h2>
-            <button onClick={handleFormSubmit} className="submit-btn">Submit</button>
+            <h2>Claim Submitted Successfully</h2>
           </div>
         </div>
       )}

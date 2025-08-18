@@ -1,0 +1,199 @@
+/* src/pages/Popup.css */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(1200px 500px at 8% -10%, rgba(255, 210, 119, .18), transparent 60%),
+    radial-gradient(1000px 520px at 92% 110%, rgba(151, 59, 237, .16), transparent 62%),
+    rgba(0, 0, 0, .75);
+  backdrop-filter: blur(10px) saturate(160%);
+  animation: popupFade .3s ease
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+.popup-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none
+}
+
+.popup-ambient i {
+  position: absolute;
+  left: calc((var(--i)*3%) % 100%);
+  top: calc((var(--i)*4%) % 100%);
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 0 10px rgba(255, 255, 255, .5);
+  animation: twinkle 2.2s linear infinite;
+}
+
+.popup-ambient i:nth-child(3n) {
+  width: 3px;
+  height: 3px;
+  opacity: .85
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: .25;
+    transform: scale(.8)
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.25)
+  }
+}
+
+.popup-card {
+  position: relative;
+  width: min(92vw, 420px);
+  border-radius: 24px;
+  padding: 40px 28px 32px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 245, 215, .95));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .15) inset;
+  transform: translateY(8px) scale(.98);
+  animation: cardIn .35s ease forwards, floaty 3.2s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes cardIn {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes floaty {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-8px)
+  }
+}
+
+.popup-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  pointer-events: none;
+  background: conic-gradient(from 0deg, rgba(255, 210, 119, .8), rgba(151, 59, 237, .8), rgba(0, 124, 255, .8), rgba(255, 210, 119, .8));
+  filter: blur(16px);
+  opacity: .35;
+  animation: hue 6s linear infinite;
+}
+
+@keyframes hue {
+  to {
+    filter: blur(16px) hue-rotate(360deg)
+  }
+}
+
+.popup-badge {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 10px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fff1c7, #ffd277);
+  box-shadow: 0 16px 40px rgba(255, 210, 119, .5);
+  font-size: 28px
+}
+
+.popup-title {
+  margin: 6px 0 8px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: .3px;
+  background: linear-gradient(90deg, #ff9900, #ffaa00, #ffcc00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .12)
+}
+
+.popup-text {
+  margin: 0 auto;
+  text-align: center;
+  color: #222;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 34ch
+}
+
+.popup-subtext {
+  margin: 14px 0 0;
+  text-align: center;
+  color: #4d4d4d;
+  font-style: italic;
+  font-weight: 500
+}
+
+.popup-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255, 255, 255, .25), rgba(255, 255, 255, 0) 50% 100%);
+  transform: skewX(-15deg) translateX(-120%);
+  animation: sweep 2.4s ease-in-out infinite .4s
+}
+
+@keyframes sweep {
+  0% {
+    transform: skewX(-15deg) translateX(-120%)
+  }
+
+  60%,
+  100% {
+    transform: skewX(-15deg) translateX(120%)
+  }
+}
+
+@media (max-width:500px) {
+  .popup-card {
+    padding: 32px 22px 26px;
+    border-radius: 20px
+  }
+
+  .popup-title {
+    font-size: 22px
+  }
+
+  .popup-badge {
+    width: 56px;
+    height: 56px
+  }
+}
+
+@media (max-width:400px) {
+  .popup-card {
+    padding: 26px 18px 22px;
+    border-radius: 18px
+  }
+
+  .popup-title {
+    font-size: 20px
+  }
+}

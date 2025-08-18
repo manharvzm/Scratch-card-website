@@ -68,15 +68,8 @@
 }
 
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0)
-  }
-
-  50% {
-    transform: translateY(-14px)
-  }
+  0%, 100% { transform: translateY(0) }
+  50% { transform: translateY(-14px) }
 }
 
 .rings {
@@ -95,29 +88,11 @@
   box-shadow: 0 0 60px rgba(138, 124, 255, .25), inset 0 0 30px rgba(255, 255, 255, .08)
 }
 
-.r1 {
-  width: 1100px;
-  height: 1100px;
-  animation: ringSpin 28s linear infinite
-}
+.r1 { width: 1100px; height: 1100px; animation: ringSpin 28s linear infinite }
+.r2 { width: 780px; height: 780px; animation: ringSpin 20s linear reverse infinite }
+.r3 { width: 520px; height: 520px; animation: ringSpin 14s linear infinite }
 
-.r2 {
-  width: 780px;
-  height: 780px;
-  animation: ringSpin 20s linear reverse infinite
-}
-
-.r3 {
-  width: 520px;
-  height: 520px;
-  animation: ringSpin 14s linear infinite
-}
-
-@keyframes ringSpin {
-  to {
-    rotate: 360deg
-  }
-}
+@keyframes ringSpin { to { rotate: 360deg } }
 
 .sparkles {
   position: absolute;
@@ -137,24 +112,11 @@
   animation: twinkle 2.2s linear infinite
 }
 
-.sparkles i:nth-child(3n) {
-  width: 3px;
-  height: 3px;
-  opacity: .95
-}
+.sparkles i:nth-child(3n) { width: 3px; height: 3px; opacity: .95 }
 
 @keyframes twinkle {
-
-  0%,
-  100% {
-    opacity: .2;
-    transform: scale(.8)
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.25)
-  }
+  0%, 100% { opacity: .2; transform: scale(.8) }
+  50% { opacity: 1; transform: scale(1.25) }
 }
 
 .content-wrapper {
@@ -214,17 +176,8 @@
 }
 
 @keyframes underlinePulse {
-
-  0%,
-  100% {
-    opacity: .7;
-    transform: translateX(-50%) scaleX(1)
-  }
-
-  50% {
-    opacity: 1;
-    transform: translateX(-50%) scaleX(1.08)
-  }
+  0%, 100% { opacity: .7; transform: translateX(-50%) scaleX(1) }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1.08) }
 }
 
 .scratch-card-glow {
@@ -250,27 +203,11 @@
   animation: hue 6s linear infinite
 }
 
-@keyframes hue {
-  to {
-    filter: blur(10px) hue-rotate(360deg)
-  }
-}
+@keyframes hue { to { filter: blur(10px) hue-rotate(360deg) } }
 
-.glow-disabled {
-  box-shadow: 0 12px 36px rgba(0, 0, 0, .28)
-}
+.glow-disabled { box-shadow: 0 12px 36px rgba(0, 0, 0, .28) }
 
-@keyframes pop {
-  from {
-    opacity: 0;
-    transform: translateY(8px)
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0)
-  }
-}
+@keyframes pop { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: translateY(0) } }
 
 .scratch-content-layer {
   position: relative;
@@ -300,16 +237,8 @@
   text-shadow: 0 2px 12px rgba(0, 0, 0, .5)
 }
 
-.burst {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0
-}
-
-.burst-show {
-  opacity: 1
-}
+.burst { position: absolute; inset: 0; pointer-events: none; opacity: 0 }
+.burst-show { opacity: 1 }
 
 .burst span {
   position: absolute;
@@ -325,15 +254,8 @@
 }
 
 @keyframes confetti {
-  0% {
-    translate: -50% -50%;
-    opacity: 1
-  }
-
-  100% {
-    translate: calc(-50% + (cos(var(--d)) * 120px)) calc(-50% + (sin(var(--d)) * 120px));
-    opacity: 0
-  }
+  0% { translate: -50% -50%; opacity: 1 }
+  100% { translate: calc(-50% + (cos(var(--d)) * 120px)) calc(-50% + (sin(var(--d)) * 120px)); opacity: 0 }
 }
 
 .shine {
@@ -346,19 +268,11 @@
 }
 
 @keyframes sweep {
-  0% {
-    transform: skewX(-12deg) translateX(-120%)
-  }
-
-  60%,
-  100% {
-    transform: skewX(-12deg) translateX(120%)
-  }
+  0% { transform: skewX(-12deg) translateX(-120%) }
+  60%, 100% { transform: skewX(-12deg) translateX(120%) }
 }
 
-.after-reveal {
-  margin-top: 16px
-}
+.after-reveal { margin-top: 16px }
 
 .cta {
   padding: 12px 18px;
@@ -372,42 +286,14 @@
   transition: transform .15s ease, filter .15s ease, box-shadow .2s ease
 }
 
-.cta:hover {
-  filter: brightness(1.05);
-  box-shadow: 0 22px 60px rgba(151, 59, 237, .45)
-}
+.cta:hover { filter: brightness(1.05); box-shadow: 0 22px 60px rgba(151, 59, 237, .45) }
+.cta:active { transform: translateY(1px) }
+.cta.loading { opacity: .85 }
 
-.cta:active {
-  transform: translateY(1px)
-}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 
-.cta.loading {
-  opacity: .85
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0
-  }
-
-  to {
-    opacity: 1
-  }
-}
-
-@media (min-width:500px) {
-  .heading-text {
-    font-size: 26px
-  }
-}
-
+@media (min-width:500px) { .heading-text { font-size: 26px } }
 @media (max-width:400px) {
-  .content-wrapper {
-    padding-left: 12px;
-    padding-right: 12px
-  }
-
-  .heading-text {
-    font-size: 22px
-  }
+  .content-wrapper { padding-left: 12px; padding-right: 12px }
+  .heading-text { font-size: 22px }
 }

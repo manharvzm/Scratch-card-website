@@ -1,4 +1,3 @@
-// src/pages/ScratchCardPage.js
 import React, { useEffect, useState } from 'react';
 import ScratchCanvas from './ScratchCanvas';
 import { useNavigate } from 'react-router-dom';
@@ -30,11 +29,11 @@ export default function ScratchCardPage() {
   const onComplete = () => {
     setRevealed(true);
     setShowPrizePopup(true);
-    setTimeout(() => setShowPrizePopup(false), 2000);
   };
 
   const handleClaim = async () => {
     setClaiming(true);
+    setShowPrizePopup(false);
     await new Promise(r => setTimeout(r, 900));
     await triggerPopup();
     navigate('/');
@@ -100,7 +99,7 @@ export default function ScratchCardPage() {
           {!revealed && <div className="shine" />}
         </div>
 
-        {revealed && !showPrizePopup && (
+        {revealed && (
           <div className="after-reveal">
             <button className={`cta ${claiming ? 'loading' : ''}`} onClick={handleClaim} disabled={claiming}>
               {claiming ? 'Submitting...' : 'Claim Reward'}

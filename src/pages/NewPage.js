@@ -56,7 +56,7 @@ export default function NewPage() {
                 <div className="ticket-edge te-bottom" />
                 <div className="foil"></div>
                 <div className="confetti">
-                    {Array.from({ length: 48 }).map((_, i) => (
+                    {Array.from({ length: 60 }).map((_, i) => (
                         <span key={i} style={{ '--i': i + 1 }} />
                     ))}
                 </div>
@@ -66,7 +66,7 @@ export default function NewPage() {
                     ))}
                 </div>
                 <div className="spark-shards">
-                    {Array.from({ length: 24 }).map((_, i) => (
+                    {Array.from({ length: 28 }).map((_, i) => (
                         <b key={i} style={{ '--k': i + 1 }} />
                     ))}
                 </div>

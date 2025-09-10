@@ -43,20 +43,38 @@ export default function ScratchCardPage() {
   return (
     <div className="scratch-page-container">
       <img src="/images/bg2.jpg" alt="background" className="bg-image" />
-      <div className="overlay-gradient" />
-      <div className="orbs">
-        <span className="orb orb-a" />
-        <span className="orb orb-b" />
-        <span className="orb orb-c" />
+      <div className="overlay-sunburst" />
+      <div className="ticket-edges te-top" />
+      <div className="ticket-edges te-bottom" />
+
+      <div className="confetti-field">
+        {Array.from({ length: 90 }).map((_, i) => (
+          <span key={i} className="confetti" style={{ '--i': i + 1 }} />
+        ))}
       </div>
-      <div className="rings">
-        <i className="ring r1" />
-        <i className="ring r2" />
-        <i className="ring r3" />
+
+      <div className="balloons">
+        <i className="balloon b1" />
+        <i className="balloon b2" />
+        <i className="balloon b3" />
+        <i className="balloon b4" />
       </div>
-      <div className="sparkles">
-        {Array.from({ length: 36 }).map((_, i) => (
-          <i key={i} style={{ '--i': i + 1 }} />
+
+      <div className="coins">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <i key={i} className="coin" style={{ '--c': i + 1 }} />
+        ))}
+      </div>
+
+      <div className="sparkle-grid">
+        {Array.from({ length: 48 }).map((_, i) => (
+          <b key={i} style={{ '--s': i + 1 }} />
+        ))}
+      </div>
+
+      <div className="ribbons">
+        {Array.from({ length: 16 }).map((_, i) => (
+          <em key={i} style={{ '--r': i + 1 }} />
         ))}
       </div>
 
@@ -69,11 +87,12 @@ export default function ScratchCardPage() {
           </h1>
         </div>
 
-        <div className={`scratch-card-glow ${revealed ? 'glow-disabled' : ''}`}>
-          <div className="glow-border" />
+        <div className={`scratch-card-wrap ${revealed ? 'done' : ''}`}>
+          <div className="wrap-glow" />
+          <div className="wrap-foil" />
           <ScratchCanvas
-            width={300}
-            height={300}
+            width={320}
+            height={320}
             coverImage="/images/qr6.jpg"
             brushSize={26}
             finishPercent={40}
@@ -82,9 +101,13 @@ export default function ScratchCardPage() {
             <div className="scratch-content-layer">
               {revealed && (
                 <>
-                  <div className={`burst ${showPrizePopup ? 'burst-show' : ''}`}>
-                    {Array.from({ length: 18 }).map((_, i) => (
-                      <span key={i} style={{ '--d': i }} />
+                  <div className="fireworks">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                      <div key={i} className={`fw f${i + 1}`}>
+                        {Array.from({ length: 12 }).map((_, j) => (
+                          <span key={j} style={{ '--j': j }} />
+                        ))}
+                      </div>
                     ))}
                   </div>
                   {showPrizePopup && (

@@ -52,21 +52,22 @@ export default function NewPage() {
 
             <div className="bg">
                 <div className="bg-vignette" />
-                <div className="ring r1" />
-                <div className="ring r2" />
-                <div className="ring r3" />
-                <div className="ring r4" />
-                <div className="orb o1" />
-                <div className="orb o2" />
-                <div className="orb o3" />
-                <div className="bubbles">
-                    {Array.from({ length: 28 }).map((_, i) => (
+                <div className="ticket-edge te-top" />
+                <div className="ticket-edge te-bottom" />
+                <div className="foil"></div>
+                <div className="confetti">
+                    {Array.from({ length: 48 }).map((_, i) => (
                         <span key={i} style={{ '--i': i + 1 }} />
                     ))}
                 </div>
-                <div className="sparkles">
-                    {Array.from({ length: 40 }).map((_, i) => (
+                <div className="ribbons">
+                    {Array.from({ length: 18 }).map((_, i) => (
                         <i key={i} style={{ '--j': i + 1 }} />
+                    ))}
+                </div>
+                <div className="spark-shards">
+                    {Array.from({ length: 24 }).map((_, i) => (
+                        <b key={i} style={{ '--k': i + 1 }} />
                     ))}
                 </div>
             </div>

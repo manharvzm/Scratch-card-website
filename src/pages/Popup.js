@@ -12,9 +12,9 @@ export default function Popup() {
       <div className="popup-card">
         <div className="popup-glow" />
         <div className="popup-badge">🎁</div>
-        <h2 className="popup-title">Win up to 70%</h2>
+        <h2 className="popup-title">Win up to 30%</h2>
         <p className="popup-text">
-          Manhar Shopping Mall brings you a shopping lottery. Scratch and win guaranteed prizes from 10% off to 70% off.
+          Manhar Shopping Mall brings you a shopping lottery. Scratch and win guaranteed prizes from 10% off to 30% off.
         </p>
         <p className="popup-subtext">Your reward awaits… start scratching!</p>
         <div className="popup-shine" />

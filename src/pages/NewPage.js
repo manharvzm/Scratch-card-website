@@ -13,6 +13,9 @@ export default function NewPage() {
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const navigate = useNavigate();
 
+    const API_BASE = 'https://admin-backend-orcin-six.vercel.app/api';
+    const FIXED_PRIZE = 10;
+
     const openMaps = () => {
         window.open(
             'https://www.google.com/maps/place/Manhar+Shopping+Mall/@18.1156812,83.4078516,17z/data=!4m8!3m7!1s0x3a3be55a8568beed:0xdf49dfe85fa3dfc!8m2!3d18.1156761!4d83.4104265!9m1!1b1!16s%2Fg%2F11h1gm43v!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D',
@@ -31,12 +34,32 @@ export default function NewPage() {
         }
         setSubmitting(true);
         try {
-            const res = await fetch('https://admin-backend-orcin-six.vercel.app/api/check', {
+            const checkRes = await fetch(`${API_BASE}/check`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: form.name.trim(), mobile: form.mobile.trim() })
+                body: JSON.stringify({ mobile: form.mobile.trim() }),
+                credentials: 'include'
             });
-            if (!res.ok) throw new Error('Failed');
+            if (!checkRes.ok) throw new Error('Check failed');
+            const { exists } = await checkRes.json();
+            if (exists) {
+                setMessage('This mobile number has already participated.');
+                setShowForm(false);
+                setHasSubmitted(true);
+                setActiveStep(2);
+                return;
+            }
+            const saveRes = await fetch(`${API_BASE}/save`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: form.name.trim(),
+                    mobile: form.mobile.trim(),
+                    prize: FIXED_PRIZE
+                }),
+                credentials: 'include'
+            });
+            if (!saveRes.ok) throw new Error('Save failed');
             setMessage('Data submitted successfully.');
             setActiveStep(2);
             setShowForm(false);
@@ -148,7 +171,9 @@ export default function NewPage() {
                                         inputMode="numeric"
                                         pattern="[0-9]*"
                                     />
-                                    <button className="submit" type="submit">Submit</button>
+                                    <button className="submit" type="submit" disabled={submitting}>
+                                        {submitting ? 'Submitting…' : 'Submit'}
+                                    </button>
                                 </form>
                             </div>
                         )}

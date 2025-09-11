@@ -14,14 +14,9 @@ export default function ScratchCardPage() {
 
   useEffect(() => {
     const pool = [
-      ...Array(40).fill(5),
+  
       ...Array(30).fill(10),
-      ...Array(20).fill(15),
-      ...Array(10).fill(20),
-      ...Array(5).fill(25),
-      ...Array(3).fill(30),
-      ...Array(2).fill(40),
-      50
+      
     ];
     setPrize(pool[Math.floor(Math.random() * pool.length)]);
   }, []);

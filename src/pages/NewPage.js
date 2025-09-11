@@ -10,6 +10,7 @@ export default function NewPage() {
     const [submitting, setSubmitting] = useState(false);
     const [message, setMessage] = useState('');
     const [form, setForm] = useState({ name: '', mobile: '' });
+    const [hasSubmitted, setHasSubmitted] = useState(false);
     const navigate = useNavigate();
 
     const openMaps = () => {
@@ -39,6 +40,7 @@ export default function NewPage() {
             setMessage('Data submitted successfully.');
             setActiveStep(2);
             setShowForm(false);
+            setHasSubmitted(true);
         } catch {
             setMessage('Submission failed. Try again.');
         } finally {
@@ -115,14 +117,16 @@ export default function NewPage() {
                         <button
                             className={`step-btn ${activeStep >= 1 ? 'active' : ''}`}
                             onClick={() => {
+                                if (hasSubmitted) return;
                                 setShowForm(true);
                                 setActiveStep(1);
                             }}
+                            disabled={hasSubmitted}
                         >
-                            Fill the form
+                            {hasSubmitted ? 'Form submitted' : 'Fill the form'}
                         </button>
 
-                        {showForm && (
+                        {showForm && !hasSubmitted && (
                             <div className="inline-form-wrap">
                                 <div className="inline-form-glow" />
                                 <form className="inline-form" onSubmit={handleSubmit}>

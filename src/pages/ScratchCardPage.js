@@ -112,7 +112,7 @@ export default function ScratchCardPage() {
                   </div>
                   {showPrizePopup && (
                     <div className="reveal-amount">
-                      <h2>🎉 You won ₹{prize}</h2>
+                      <h2>🎉 You won {prize}% off on your next purchase</h2>
                     </div>
                   )}
                 </>

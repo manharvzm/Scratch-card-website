@@ -84,7 +84,7 @@ export default function NewPage() {
                     <div className="socials">
                         <a
                             className="social-btn"
-                            href="https://www.instagram.com/_attach.com_?igsh=MXhpZWI4Z2FjaHJhZQ=="
+                            href="https://www.instagram.com/manharshoppingmall/"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
@@ -102,12 +102,12 @@ export default function NewPage() {
                         </a>
                         <a
                             className="social-btn"
-                            href="https://www.instagram.com/_attach.com_?igsh=MXhpZWI4Z2FjaHJhZQ=="
+                            href="https://www.facebook.com/profile.php?id=61580490187427"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook"
                         >
-                            <FaFacebookF />
+                            <FaFacebookF/>
                         </a>
                     </div>
 
